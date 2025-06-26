@@ -38,34 +38,69 @@ if (hamburgerMenu && sidebar && closeSidebar) {
     });
 }
 
-// Password Toggle Functions
+// Improved Password Toggle Functions
 function togglePassword() {
     const password = document.getElementById('password');
-    const toggle = document.querySelector('.toggle-password');
-    if (password.type === 'password') {
-        password.type = 'text';
-        toggle.classList.remove('fa-eye');
-        toggle.classList.add('fa-eye-slash');
-    } else {
-        password.type = 'password';
-        toggle.classList.remove('fa-eye-slash');
-        toggle.classList.add('fa-eye');
-    }
+    const toggle = password.parentElement.querySelector('.toggle-password');
+    togglePasswordVisibility(password, toggle);
 }
 
 function toggleLoginPassword() {
     const password = document.getElementById('login-password');
-    const toggle = document.querySelector('.toggle-password');
-    if (password.type === 'password') {
-        password.type = 'text';
-        toggle.classList.remove('fa-eye');
-        toggle.classList.add('fa-eye-slash');
+    const toggle = password.parentElement.querySelector('.toggle-password');
+    togglePasswordVisibility(password, toggle);
+}
+
+function togglePasswordVisibility(passwordField, toggleIcon) {
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleIcon.classList.replace('fa-eye', 'fa-eye-slash');
     } else {
-        password.type = 'password';
-        toggle.classList.remove('fa-eye-slash');
-        toggle.classList.add('fa-eye');
+        passwordField.type = 'password';
+        toggleIcon.classList.replace('fa-eye-slash', 'fa-eye');
+    }
+}// Unified Password Toggle Functions
+function togglePasswordVisibility(passwordField, toggleIcon) {
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleIcon.classList.replace('fa-eye', 'fa-eye-slash');
+    } else {
+        passwordField.type = 'password';
+        toggleIcon.classList.replace('fa-eye-slash', 'fa-eye');
     }
 }
+
+// Registration page toggle
+function togglePassword() {
+    const password = document.getElementById('password');
+    const toggle = document.querySelector('#auth-form .toggle-password');
+    togglePasswordVisibility(password, toggle);
+}
+
+// Login page toggle
+function toggleLoginPassword() {
+    const password = document.getElementById('login-password');
+    const toggle = document.getElementById('toggleLoginPassword');
+    if (password && toggle) {
+        togglePasswordVisibility(password, toggle);
+    }
+}
+
+// Add event listeners when DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Login page eye icon
+    const loginToggle = document.getElementById('toggleLoginPassword');
+    if (loginToggle) {
+        loginToggle.addEventListener('click', toggleLoginPassword);
+    }
+    
+    // Registration page eye icon
+    const regToggle = document.querySelector('#auth-form .toggle-password');
+    if (regToggle) {
+        regToggle.addEventListener('click', togglePassword);
+    }
+});
+
 // Registration with Re-Validation
 const authForm = document.getElementById('auth-form');
 const authMessage = document.getElementById('auth-message');
@@ -160,13 +195,13 @@ if (authForm) {
     }
 
     function collectProfessionalInfo() {
-        professionalInfo = {
-            currentJob: document.querySelector('[name="currentJob"]')?.value.trim() || '',
-            yearsExperience: document.querySelector('[name="yearsExperience"]')?.value.trim() || '',
-            education: selectedEducation,
-            goal: selectedGoal
-        };
-    }
+    professionalInfo = {
+        currentJob: document.querySelector('[name="currentJob"]')?.value.trim() || '',
+        yearsExperience: document.querySelector('[name="yearsExperience"]')?.value.trim() || '',
+        education: selectedEducation,
+        goal: selectedGoal
+    };
+}
 
     // Event delegation for card selections and navigation
     document.addEventListener('click', function(e) {
@@ -207,17 +242,79 @@ if (authForm) {
             currentExtraStep--;
             updateProgressIndicator();
         }
-        
-        if (e.target.classList.contains('complete-btn')) {
-            if (!selectedEducation) {
-                authMessage.textContent = 'Please select your education level';
-                authMessage.classList.add('error');
-                authMessage.style.display = 'block';
-                return;
-            }
-            collectProfessionalInfo();
-            document.getElementById('register-btn').click();
+        // Replace the existing click handler for complete-btn with this:
+document.addEventListener('click', function(e) {
+    // ... (keep other existing click handlers)
+    
+    if (e.target.classList.contains('complete-btn')) {
+        if (!selectedEducation) {
+            authMessage.textContent = 'Please select your education level';
+            authMessage.classList.add('error');
+            authMessage.style.display = 'block';
+            return;
         }
+        collectProfessionalInfo();
+        completeRegistration(); // Call the new registration function
+    }
+});
+
+// Add this new function to handle the final registration
+function completeRegistration() {
+    const formData = new FormData(authForm);
+    const firstName = formData.get('firstName');
+    const lastName = formData.get('lastName');
+    const email = formData.get('email');
+    const password = formData.get('password');
+    const role = formData.get('role');
+    const username = formData.get('username');
+    const currentJob = professionalInfo.currentJob;
+    const yearsExperience = professionalInfo.yearsExperience;
+
+    // Prepare user data with all collected information
+    const userData = {
+        firstName,
+        lastName,
+        email,
+        username,
+        password,
+        role,
+        goal: selectedGoal,
+        education: selectedEducation,
+        sessions: [],
+        badges: [],
+        currentJob,
+        yearsExperience,
+        ...(role === 'mentor' ? { 
+            expertise: [professionalInfo.currentJob],
+            mentors: []
+        } : {
+            mentorType: professionalInfo.currentJob
+        })
+    };
+
+    // Check if user already exists
+    const userExists = users.some(u => u.username === username || u.email === email);
+    if (userExists) {
+        authMessage.textContent = 'Username or email already taken. Please choose another.';
+        authMessage.classList.add('error');
+        authMessage.style.display = 'block';
+        return;
+    }
+
+    // Save user data
+    users.push(userData);
+    localStorage.setItem('users', JSON.stringify(users));
+    
+    // Set as current user
+    currentUser = { ...userData };
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    
+    // Show success message and redirect
+    authMessage.textContent = 'Account successfully created!';
+    authMessage.classList.remove('error');
+    authMessage.style.display = 'block';
+    setTimeout(() => window.location.href = 'dashboard.html', 1000);
+}
     });
 
     passwordInput.addEventListener('input', () => {
@@ -234,7 +331,6 @@ if (authForm) {
 
     authForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        if (registerBtn.disabled) return;
 
         const formData = new FormData(authForm);
         const firstName = formData.get('firstName');

@@ -60,7 +60,7 @@
             </div>
             <div class="input-group password-group">
                 <input type="password" id="password" name="password" placeholder="Password" required>
-                <i class="fas fa-eye toggle-password" onclick="togglePassword()"></i>
+                <i class="fas fa-eye toggle-password" id="togglePassword"></i>
                 <span class="input-border"></span>
              </div>
                 <div id="password-feedback" class="password-checklist"></div>
@@ -83,9 +83,6 @@
             
              <p class="switch-link">Already have an account? <a href="login.html">Sign In</a></p>
             <div id="auth-message"></div>
-             <div id="extra-fields" style="display: none;"></div>
-             <!-- Keep all your existing form elements -->
-<!-- Only modify the extra-fields div to include the multi-step approach -->
 <div id="extra-fields" style="display: none;">
     <!-- Progress indicator -->
     <div class="progress-indicator">
