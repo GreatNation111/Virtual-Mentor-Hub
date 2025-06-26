@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Mentor Hub - Create Account</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="sticky-nav">
+        <svg class="logo" width="270" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- Define gradient -->
+                <linearGradient id="vm-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#3498db"/>
+                    <stop offset="100%" stop-color="#8e44ad"/>
+                </linearGradient>
+       <!-- Lightbulb shape as a clip path -->
+                <clipPath id="lightbulb-clip">
+                    <path d="M65 20 
+                           C65 10, 75 10, 75 20 
+                           C75 30, 65 30, 65 20 Z 
+                           M70 30 L70 45 
+                           L68 48 L72 48 L70 45 Z" />
+                </clipPath>
+            </defs>
+
+            <!-- Intertwined V and M -->
+            <g stroke="#eee" stroke-width="4">
+                <path d="M10 10 L30 90 L50 10" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M50 10 L70 60 L90 10 L110 90" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Lightbulb inside M -->
+                <g clip-path="url(#lightbulb-clip)" transform="translate(60,15)">
+                    <rect x="0" y="0" width="20" height="33" fill="url(#vm-gradient)"/>
+                </g>
+            </g>
+
+            <!-- Text: Virtual Mentor Hub (scaled down) -->
+            <text x="130" y="70" font-family="Montserrat, sans-serif" font-size="20" fill="url(#vm-gradient)">
+                Virtual Mentor Hub
+            </text>
+        </svg>
+    </nav>
+  <div class="container">
+    <section class="auth-section">
+        <h2>Create Your Account</h2>
+        <form id="auth-form">
+            <div class="input-group">
+                <input type="text" name="firstName" placeholder="First Name" required>
+                <span class="input-border"></span>
+            </div>
+            <div class="input-group">
+                <input type="text" name="lastName" placeholder="Last Name" required>
+                <span class="input-border"></span>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email" required>
+                <span class="input-border"></span>
+            </div>
+            <div class="input-group password-group">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <i class="fas fa-eye toggle-password" onclick="togglePassword()"></i>
+                <span class="input-border"></span>
+             </div>
+                <div id="password-feedback" class="password-checklist"></div>
+               <div class="form-group">
+                <label for="role">Role:</label>
+                <select name="role" id="role" required>
+                    <option value="">Select Role</option>
+                    <option value="student">Student</option>
+                    <option value="mentor">Mentor</option>
+                </select>
+                <span class="input-border"></span>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Suggested Username" required>
+                <small id="username-feedback" class="feedback"></small>
+                <span class="input-border"></span>
+            </div>
+            <button type="submit" id="register-btn" disabled>Register</button>
+            
+             <p class="switch-link">Already have an account? <a href="login.html">Sign In</a></p>
+            <div id="auth-message"></div>
+             <div id="extra-fields" style="display: none;"></div>
+             <!-- Keep all your existing form elements -->
+<!-- Only modify the extra-fields div to include the multi-step approach -->
+<div id="extra-fields" style="display: none;">
+    <!-- Progress indicator -->
+    <div class="progress-indicator">
+        Step <span class="current-step">1</span> of 3
+    </div>
+
+    <!-- Step 1: Goal Selection -->
+    <div class="extra-step active" data-step="1">
+        <h3>Tell us about your goals</h3>
+        
+        <div class="goal-options">
+            <!-- Student Goals -->
+            <div class="goal-card" data-goal="start_career">
+                <h4>Start my career</h4>
+                <p>I'm looking to enter a new field</p>
+            </div>
+            <div class="goal-card" data-goal="change_career">
+                <h4>Change my career</h4>
+                <p>I want to transition to a different field</p>
+            </div>
+            <div class="goal-card" data-goal="skill_development">
+                <h4>Develop specific skills</h4>
+                <p>I want to improve in my current role</p>
+            </div>
+        </div>
+        
+        <div class="form-nav">
+            <button type="button" class="next-btn">Next →</button>
+        </div>
+    </div>
+
+    <!-- Step 2: Professional Background -->
+    <div class="extra-step" data-step="2">
+        <h3>Professional Background</h3>
+        
+        <div class="input-group">
+            <input type="text" placeholder="Current job title" name="currentJob">
+            <span class="input-border"></span>
+        </div>
+        
+        <div class="input-group">
+            <input type="text" placeholder="Years of experience" name="yearsExperience">
+            <span class="input-border"></span>
+        </div>
+        
+        <div class="form-nav">
+            <button type="button" class="back-btn">← Back</button>
+            <button type="button" class="next-btn">Next →</button>
+        </div>
+    </div>
+
+    <!-- Step 3: Education -->
+    <div class="extra-step" data-step="3">
+        <h3>Education Background</h3>
+        
+        <div class="education-options">
+            <div class="edu-card" data-education="high_school">
+                <h4>High school diploma</h4>
+                <p>Or equivalent</p>
+            </div>
+            <div class="edu-card" data-education="bachelors">
+                <h4>Bachelor's degree</h4>
+                <p>BA, BS, or similar</p>
+            </div>
+            <div class="edu-card" data-education="masters">
+                <h4>Master's degree</h4>
+                <p>MA, MS, or similar</p>
+            </div>
+        </div>
+        
+        <div class="form-nav">
+            <button type="button" class="back-btn">← Back</button>
+            <button type="button" class="complete-btn">Complete Registration</button>
+        </div>
+    </div>
+</div>
+        </form>
+       
+    </section>
+  </div>
+    <a href="index.html" class="back-to-home">Back to Home</a>
+
+    <script src="script.js"></script>
+</body>
+</html>

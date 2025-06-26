@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Mentor Hub - Community</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="sticky-nav">
+         <svg class="logo" width="220" height="90" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- Define gradient -->
+                <linearGradient id="vm-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#3498db"/>
+                    <stop offset="100%" stop-color="#8e44ad"/>
+                </linearGradient>
+       <!-- Lightbulb shape as a clip path -->
+                <clipPath id="lightbulb-clip">
+                    <path d="M65 20 
+                           C65 10, 75 10, 75 20 
+                           C75 30, 65 30, 65 20 Z 
+                           M70 30 L70 45 
+                           L68 48 L72 48 L70 45 Z" />
+                </clipPath>
+            </defs>
+
+            <!-- Intertwined V and M -->
+            <g stroke="#eee" stroke-width="4">
+                <path d="M10 10 L30 90 L50 10" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M50 10 L70 60 L90 10 L110 90" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Lightbulb inside M -->
+                <g clip-path="url(#lightbulb-clip)" transform="translate(60,15)">
+                    <rect x="0" y="0" width="20" height="33" fill="url(#vm-gradient)"/>
+                </g>
+            </g>
+
+            <!-- Text: Virtual Mentor Hub (scaled down) -->
+            <text x="130" y="70" font-family="Montserrat, sans-serif" font-size="20" fill="url(#vm-gradient)">
+                Virtual Mentor Hub
+            </text>
+        </svg>
+    </nav>
+
+    <section id="community" class="container">
+        <h2>Community Forum</h2>
+        <div class="input-group">
+            <textarea id="post-input" placeholder="Share your thoughts or ask a question..." required></textarea>
+            <span class="input-border"></span>
+        </div>
+        <button id="post-submit">Post</button>
+        <div id="post-list"></div>
+    </section>
+     <a href="dashboard.html" class="back-btn1"> ← Back</a>
+    <script src="script.js"></script>
+</body>
+</html>
