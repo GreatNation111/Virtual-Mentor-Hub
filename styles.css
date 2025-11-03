@@ -231,19 +231,18 @@ body {
 
     .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 70px;
         left: 0;
         right: 0;
-        background: var(--bg-secondary);
+        background: var(--glass-bg);
         backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border-light);
+        border-bottom: 1px solid var(--glass-border);
         padding: var(--space-6);
         flex-direction: column;
         gap: var(--space-4);
         transform: translateY(-100%);
         opacity: 0;
-        visibility: hidden;
-         
+        visibility: hidden; 
         transition: all var(--transition-normal);
         box-shadow: var(--shadow-lg);
     }
@@ -257,6 +256,7 @@ body {
     .nav-link {
         padding: var(--space-3) var(--space-4);
         border-radius: var(--radius-md);
+        color:black;
         transition: all var(--transition-fast);
     }
 
@@ -1645,7 +1645,7 @@ body {
 .sidebar-header {
   padding: var(--space-8) var(--space-6);
   border-bottom: 1px solid var(--border-light);
-  flex-shrink: 0; /* Prevent header from shrinking */
+  flex-shrink: 0; 
 }
 
 .sidebar-logo {
@@ -1657,8 +1657,8 @@ body {
 .sidebar-content {
   display: flex;
   flex-direction: column;
-  flex: 1; /* Take available space */
-  overflow: hidden; /* Prevent overall scrolling */
+  flex: 1; 
+  overflow: hidden; 
 }
 
 .user-profile {
@@ -1667,7 +1667,7 @@ body {
   align-items: center;
   gap: var(--space-4);
   border-bottom: 1px solid var(--border-light);
-  flex-shrink: 0; /* Prevent profile from shrinking */
+  flex-shrink: 0 /* Prevent profile from shrinking */
 }
 
 .user-avatar.profile-btn {
@@ -1706,10 +1706,10 @@ body {
 }
 
 .sidebar-nav {
-  flex: 1; /* Take remaining space */
+  flex: 1; 
   padding: var(--space-4) 0;
   list-style: none;
-  overflow-y: auto; /* Allow scrolling only for nav items */
+  overflow-y: auto; 
   overflow-x: hidden;
 }
 
@@ -1807,12 +1807,16 @@ body {
   font-size: var(--text-lg);
 }
 
+
 /* Mobile sidebar styles */
+
 @media (max-width: 1024px) {
   .dashboard-sidebar {
     transform: translateX(-100%);
     transition: transform var(--transition-normal);
-    width: 280px; /* Keep consistent width */
+    width: 280px;
+    height: 100dvh; 
+    padding-bottom: env(safe-area-inset-bottom, 0px); 
   }
   
   .dashboard-sidebar.active {
@@ -1828,13 +1832,24 @@ body {
     display: block;
   }
 
-  /* Ensure sidebar content is properly structured on mobile */
   .sidebar-content {
-    max-height: calc(100vh - 140px); /* Account for header and footer */
+    max-height: calc(100dvh - 160px);
+    padding-bottom: env(safe-area-inset-bottom, 10px);
   }
 
   .sidebar-nav {
-    max-height: calc(100vh - 280px); /* Account for header, profile, and footer */
+    max-height: calc(100dvh - 340px);
+    padding-bottom: env(safe-area-inset-bottom, 10px);
+  }
+
+  .sidebar-footer {
+    padding-bottom: max(env(safe-area-inset-bottom, 20px), var(--space-4));
+    margin-bottom: env(safe-area-inset-bottom, 0px);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-light);
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
   }
 }
 
@@ -2323,6 +2338,7 @@ body {
   font-size: var(--text-sm);
   font-weight: 500;
 }
+
 /* ===== COMMUNITY, CAREER, RESOURCES PAGES ===== */
 .page-container {
   max-width: 1200px;
@@ -2481,6 +2497,20 @@ body {
   }
 }
 
+/* Reduce Community Card Size on Desktop */
+@media (min-width: 769px) {
+  .community-card.create-post {
+    max-height: 375px;
+    width: 800px;
+    margin:0 auto;
+    padding: var(--space-6);
+  }
+
+  .posts-feed{
+    margin-top: -20rem;
+  }
+  
+}
 .community-card {
   background: var(--bg-secondary);
   border-radius: var(--radius-2xl);
@@ -3011,7 +3041,7 @@ body {
 
 .page-container {
   max-width: 1200px;
-  margin: 100px auto 0;
+  margin: 100px auto 50px;
   padding: 0 var(--space-6);
 }
 
@@ -3360,11 +3390,14 @@ body {
 .mentors-controls {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: var(--space-6);
   margin-bottom: var(--space-8);
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 .search-bar {
@@ -3402,6 +3435,7 @@ body {
   display: flex;
   gap: var(--space-3);
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .filter-tab {
@@ -3428,19 +3462,45 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--space-6);
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+   margin: 0 auto;
+  width: 100%;
+  justify-items: center;
 }
 
 @media (max-width: 768px) {
   .mentors-grid {
     grid-template-columns: 1fr;
+    padding: 0 var(--space-4);
   }
   
   .mentors-controls {
-    flex-direction: column;
-    align-items: stretch;
+     padding: 0 var(--space-4);
   }
+}
+
+/* Ensure empty state is properly centered in grid */
+.mentors-grid .empty-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: var(--space-12);
+}
+
+.mentors-grid .empty-state i {
+    font-size: 4rem;
+    margin-bottom: var(--space-4);
+    opacity: 0.5;
+    color: var(--text-tertiary);
+}
+
+.mentors-grid .empty-state p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    margin: 0;
 }
 
 .mentor-card.expanded {
@@ -3760,9 +3820,6 @@ body {
     min-width: 150px;
   }
 
-  .mentors-grid {
-    grid-template-columns: 1fr;
-  }
 
   .mentor-actions {
     flex-direction: column;
