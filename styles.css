@@ -1641,31 +1641,11 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-/* Ensure sidebar content scrolls and footer stays visible */
-.sidebar-content {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  flex: 1 1 auto;
-}
-
-.sidebar-nav {
-  flex: 1 1 auto;
-  padding: var(--space-4) 0;
-  list-style: none;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-@media (max-width: 1024px) {
-  .sidebar-content {
-    max-height: calc(100vh - 140px);
-  }
-}
-
+/* Fixed sidebar content structure */
 .sidebar-header {
   padding: var(--space-8) var(--space-6);
   border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .sidebar-logo {
@@ -1674,12 +1654,20 @@ body {
   gap: var(--space-3);
 }
 
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Take available space */
+  overflow: hidden; /* Prevent overall scrolling */
+}
+
 .user-profile {
   padding: var(--space-6);
   display: flex;
   align-items: center;
   gap: var(--space-4);
   border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0; /* Prevent profile from shrinking */
 }
 
 .user-avatar.profile-btn {
@@ -1718,10 +1706,10 @@ body {
 }
 
 .sidebar-nav {
-  flex: 1;
+  flex: 1; /* Take remaining space */
   padding: var(--space-4) 0;
   list-style: none;
-  overflow-y: auto;
+  overflow-y: auto; /* Allow scrolling only for nav items */
   overflow-x: hidden;
 }
 
@@ -1785,9 +1773,69 @@ body {
   margin-left: auto;
 }
 
+/* Fixed sidebar footer */
 .sidebar-footer {
   padding: var(--space-4) var(--space-6);
   border-top: 1px solid var(--border-light);
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  background: var(--bg-secondary);
+  z-index: 10; /* Ensure footer stays above content */
+}
+
+/* Logout link styling */
+.sidebar-footer .nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.sidebar-footer .nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+}
+
+.sidebar-footer .nav-link i {
+  width: 20px;
+  text-align: center;
+  font-size: var(--text-lg);
+}
+
+/* Mobile sidebar styles */
+@media (max-width: 1024px) {
+  .dashboard-sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+    width: 280px; /* Keep consistent width */
+  }
+  
+  .dashboard-sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .dashboard-main {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .sidebar-toggle {
+    display: block;
+  }
+
+  /* Ensure sidebar content is properly structured on mobile */
+  .sidebar-content {
+    max-height: calc(100vh - 140px); /* Account for header and footer */
+  }
+
+  .sidebar-nav {
+    max-height: calc(100vh - 280px); /* Account for header, profile, and footer */
+  }
 }
 
 .dashboard-main {
@@ -2024,7 +2072,7 @@ body {
 
 
 /* ===== DASHBOARD CONTENT GRID ===== */
- .dashboard-grid{
+ .dashboard-grid.dashboard-section.active{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
@@ -2873,7 +2921,7 @@ body {
   .sidebar-toggle {
     display: block;
   }
-  .dashboard-grid {
+  .dashboard-grid.dashboard-section.active {
     grid-template-columns: 1fr;
    }
 }
@@ -2990,7 +3038,6 @@ body {
   margin: 0 auto;
 }
 
-/* Additional component styles for career, community, resources pages will follow the same design system */
 
 /* ===== DASHBOARD SECTIONS ===== */
 .dashboard-section {
