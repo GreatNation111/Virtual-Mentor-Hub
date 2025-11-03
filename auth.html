@@ -1,169 +1,212 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Mentor Hub - Create Account</title>
+    <title>Nexus Mentors - Create Account</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="sticky-nav">
-        <svg class="logo" width="270" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <!-- Define gradient -->
-                <linearGradient id="vm-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#3498db"/>
-                    <stop offset="100%" stop-color="#8e44ad"/>
-                </linearGradient>
-       <!-- Lightbulb shape as a clip path -->
-                <clipPath id="lightbulb-clip">
-                    <path d="M65 20 
-                           C65 10, 75 10, 75 20 
-                           C75 30, 65 30, 65 20 Z 
-                           M70 30 L70 45 
-                           L68 48 L72 48 L70 45 Z" />
-                </clipPath>
-            </defs>
-
-            <!-- Intertwined V and M -->
-            <g stroke="#eee" stroke-width="4">
-                <path d="M10 10 L30 90 L50 10" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M50 10 L70 60 L90 10 L110 90" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- Lightbulb inside M -->
-                <g clip-path="url(#lightbulb-clip)" transform="translate(60,15)">
-                    <rect x="0" y="0" width="20" height="33" fill="url(#vm-gradient)"/>
-                </g>
-            </g>
-
-            <!-- Text: Virtual Mentor Hub (scaled down) -->
-            <text x="130" y="70" font-family="Montserrat, sans-serif" font-size="20" fill="url(#vm-gradient)">
-                Virtual Mentor Hub
-            </text>
-        </svg>
+    <nav class="nexus-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-mark">NEXUS</div>
+                <span class="logo-text">MENTORS</span>
+            </div>
+            <a href="index.html" class="back-home">← Back to Home</a>
+        </div>
     </nav>
-  <div class="container">
-    <section class="auth-section">
-        <h2>Create Your Account</h2>
-        <form id="auth-form">
-            <div class="input-group">
-                <input type="text" name="firstName" placeholder="First Name" required>
-                <span class="input-border"></span>
-            </div>
-            <div class="input-group">
-                <input type="text" name="lastName" placeholder="Last Name" required>
-                <span class="input-border"></span>
-            </div>
-            <div class="input-group">
-                <input type="email" name="email" placeholder="Email" required>
-                <span class="input-border"></span>
-            </div>
-            <div class="input-group password-group">
-                <input type="password" id="password" name="password" placeholder="Password" required>
-                <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                <span class="input-border"></span>
-             </div>
-                <div id="password-feedback" class="password-checklist"></div>
-               <div class="form-group">
-                <label for="role">Role:</label>
-                <select name="role" id="role" required>
-                    <option value="">Select Role</option>
-                    <option value="student">Student</option>
-                    <option value="mentor">Mentor</option>
-                </select>
-                <span class="input-border"></span>
-            </div>
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" placeholder="Suggested Username" required>
-                <small id="username-feedback" class="feedback"></small>
-                <span class="input-border"></span>
-            </div>
-            <button type="submit" id="register-btn" disabled>Register</button>
-            
-             <p class="switch-link">Already have an account? <a href="login.html">Sign In</a></p>
-            <div id="auth-message"></div>
-<div id="extra-fields" style="display: none;">
-    <!-- Progress indicator -->
-    <div class="progress-indicator">
-        Step <span class="current-step">1</span> of 3
-    </div>
 
-    <!-- Step 1: Goal Selection -->
-    <div class="extra-step active" data-step="1">
-        <h3>Tell us about your goals</h3>
-        
-        <div class="goal-options">
-            <!-- Student Goals -->
-            <div class="goal-card" data-goal="start_career">
-                <h4>Start my career</h4>
-                <p>I'm looking to enter a new field</p>
-            </div>
-            <div class="goal-card" data-goal="change_career">
-                <h4>Change my career</h4>
-                <p>I want to transition to a different field</p>
-            </div>
-            <div class="goal-card" data-goal="skill_development">
-                <h4>Develop specific skills</h4>
-                <p>I want to improve in my current role</p>
-            </div>
+    <div class="auth-register-container">
+        <div class="auth-register-background">
+            <div class="register-gradient-orb reg-orb-1"></div>
+            <div class="register-gradient-orb reg-orb-2"></div>
+            <div class="register-gradient-orb reg-orb-3"></div>
         </div>
         
-        <div class="form-nav">
-            <button type="button" class="next-btn">Next →</button>
+        <div class="auth-register-card">
+            <div class="auth-register-header">
+                <h2>Join Nexus Mentors</h2>
+                <p>Begin your AI-powered career transformation</p>
+            </div>
+
+            <form id="auth-form" class="auth-register-form">
+                <!-- Basic Information Step -->
+                <div class="register-form-step active" data-step="1">
+                    <div class="register-step-header">
+                        <h3>Basic Information</h3>
+                        <div class="register-step-indicator">Step 1 of 3</div>
+                    </div>
+
+                    <div class="register-input-row">
+                        <div class="register-input-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                            <div class="register-input-border"></div>
+                        </div>
+                        <div class="register-input-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                            <div class="register-input-border"></div>
+                        </div>
+                    </div>
+
+                    <div class="register-input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <div class="register-input-border"></div>
+                    </div>
+
+                    <div class="register-input-group register-password-group">
+                        <label for="password">Password</label>
+                          <div class="password-input-wrapper" style="position: relative;">
+        <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+        <i class="fas fa-eye register-toggle-password" id="togglePassword" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 2;"></i>
+    </div>
+                        <div class="register-input-border"></div>
+                        <div id="password-feedback" class="register-password-checklist"></div>
+                    </div>
+
+                    <div class="register-input-group">
+    <label>I want to join as:</label>
+    <div class="register-role-options">
+        <div class="register-role-card" data-role="mentee">
+            <div class="register-role-icon">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+            <h4>Mentee</h4>
+            <p>Seeking Guidance & Learning</p>
+        </div>
+        <div class="register-role-card" data-role="mentor">
+            <div class="register-role-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h4>Mentor</h4>
+            <p>Share Expertise & Guide</p>
         </div>
     </div>
+    <input type="hidden" id="role" name="role" required>
+    <div class="register-input-border"></div>
+</div>
 
-    <!-- Step 2: Professional Background -->
-    <div class="extra-step" data-step="2">
-        <h3>Professional Background</h3>
-        
-        <div class="input-group">
-            <input type="text" placeholder="Current job title" name="currentJob">
-            <span class="input-border"></span>
+                    <div class="register-input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Choose a username" required>
+                        <small id="username-feedback" class="register-feedback"></small>
+                        <div class="register-input-border"></div>
+                    </div>
+
+                    <div class="register-form-actions">
+                        <button type="button" class="register-btn register-next-btn" data-next="2">
+                            <span>Continue</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+               <!-- Career Goals Step -->
+<div class="register-form-step" data-step="2">
+    <div class="register-step-header">
+        <h3>Career Goals</h3>
+        <div class="register-step-indicator">Step 2 of 3</div>
+    </div>
+
+    <!-- Mentee Goals Section -->
+    <div class="register-goals-grid">
+        <div class="register-goal-card" data-goal="start_career">
+            <div class="register-goal-icon">
+                <i class="fas fa-play-circle"></i>
+            </div>
+            <h4>Start My Career</h4>
+            <p>I'm looking to enter a new field</p>
         </div>
-        
-        <div class="input-group">
-            <input type="text" placeholder="Years of experience" name="yearsExperience">
-            <span class="input-border"></span>
+        <div class="register-goal-card" data-goal="change_career">
+            <div class="register-goal-icon">
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+            <h4>Change My Career</h4>
+            <p>I want to transition to a different field</p>
         </div>
-        
-        <div class="form-nav">
-            <button type="button" class="back-btn">← Back</button>
-            <button type="button" class="next-btn">Next →</button>
+        <div class="register-goal-card" data-goal="skill_development">
+            <div class="register-goal-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h4>Develop Skills</h4>
+            <p>I want to improve in my current role</p>
         </div>
     </div>
 
-    <!-- Step 3: Education -->
-    <div class="extra-step" data-step="3">
-        <h3>Education Background</h3>
-        
-        <div class="education-options">
-            <div class="edu-card" data-education="high_school">
-                <h4>High school diploma</h4>
-                <p>Or equivalent</p>
-            </div>
-            <div class="edu-card" data-education="bachelors">
-                <h4>Bachelor's degree</h4>
-                <p>BA, BS, or similar</p>
-            </div>
-            <div class="edu-card" data-education="masters">
-                <h4>Master's degree</h4>
-                <p>MA, MS, or similar</p>
-            </div>
+    <!-- Mentor Professional Fields Section -->
+    <div class="mentor-professional-fields" style="display: none;">
+        <div class="register-input-group">
+            <label for="currentJob">Current Position</label>
+            <input type="text" id="currentJob" name="currentJob" placeholder="Your current job title" required>
+            <div class="register-input-border"></div>
         </div>
-        
-        <div class="form-nav">
-            <button type="button" class="back-btn">← Back</button>
-            <button type="button" class="complete-btn">Complete Registration</button>
+
+        <div class="register-input-group">
+            <label for="yearsExperience">Years of Experience</label>
+            <input type="number" id="yearsExperience" name="yearsExperience" placeholder="0" min="0" max="50" required>
+            <div class="register-input-border"></div>
         </div>
+    </div>
+
+    <div class="register-form-actions">
+        <button type="button" class="register-btn register-prev-btn" data-prev="1">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back</span>
+        </button>
+        <button type="button" class="register-btn register-next-btn" data-next="3">
+            <span>Continue</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
     </div>
 </div>
-        </form>
-       
-    </section>
-  </div>
-    <a href="index.html" class="back-to-home">Back to Home</a>
+                <!-- Background Step -->
+                <div class="register-form-step" data-step="3">
+                    
+
+                    <div class="register-education-section">
+                        <label>Highest Education</label>
+                        <div class="register-education-options">
+                            <div class="register-edu-card" data-education="high_school">
+                                <h4>High School</h4>
+                                <p>Diploma or equivalent</p>
+                            </div>
+                            <div class="register-edu-card" data-education="bachelors">
+                                <h4>Bachelor's Degree</h4>
+                                <p>BA, BS, or similar</p>
+                            </div>
+                            <div class="register-edu-card" data-education="masters">
+                                <h4>Master's Degree</h4>
+                                <p>MA, MS, or similar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="register-form-actions">
+                        <button type="button" class="register-btn register-prev-btn" data-prev="2">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back</span>
+                        </button>
+                        <button type="submit" class="register-btn register-primary-btn" id="register-btn" disabled>
+                            <span>Complete Registration</span>
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="auth-message" class="register-auth-message"></div>
+            </form>
+
+            <div class="auth-register-footer">
+                <p>Already have an account? <a href="login.html" class="auth-register-link">Sign In</a></p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

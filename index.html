@@ -3,113 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Mentor Hub</title>
+    <title>Nexus Mentors - AI-Powered Career Mentorship</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="sticky-nav">
-        <svg class="logo" width="220" height="90" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <!-- Define gradient -->
-                <linearGradient id="vm-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#3498db"/>
-                    <stop offset="100%" stop-color="#8e44ad"/>
-                </linearGradient>
-       <!-- Lightbulb shape as a clip path -->
-                <clipPath id="lightbulb-clip">
-                    <path d="M65 20 
-                           C65 10, 75 10, 75 20 
-                           C75 30, 65 30, 65 20 Z 
-                           M70 30 L70 45 
-                           L68 48 L72 48 L70 45 Z" />
-                </clipPath>
-            </defs>
-
-            <!-- Intertwined V and M -->
-            <g stroke="#eee" stroke-width="4">
-                <path d="M10 10 L30 90 L50 10" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M50 10 L70 60 L90 10 L110 90" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- Lightbulb inside M -->
-                <g clip-path="url(#lightbulb-clip)" transform="translate(60,15)">
-                    <rect x="0" y="0" width="20" height="33" fill="url(#vm-gradient)"/>
-                </g>
-            </g>
-
-            <!-- Text: Virtual Mentor Hub (scaled down) -->
-            <text x="130" y="70" font-family="Montserrat, sans-serif" font-size="20" fill="url(#vm-gradient)">
-                Virtual Mentor Hub
-            </text>
-        </svg>
-        <div class="menu-toggle"><img class="vm-logo" src="media/Virtual-Mentor-Hub-logo.jpg" alt="Virtual-Mentor-Hub-logo"></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="auth.html" class="get-started2">Sign Up</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-    <section class="section" id="home">
-        <h1>Welcome to Virtual Mentor Hub</h1>
-        <p class="mt-4">The Virtual Mentor Hub is a dynamic platform designed to connect students and professionals with experienced mentors to guide their learning and career journeys. Whether you're a student seeking to master coding, design, mathematics, or any other field, or a professional looking to share your expertise, this hub offers a personalized mentorship experience. Our platform facilitates meaningful connections by allowing students to find mentors based on expertise, availability, and location, while mentors can manage their profiles, schedule sessions, and track mentees' progress. With features like advanced search, flexible scheduling, progress tracking, and more, the Virtual Mentor Hub empowers users to achieve their educational and professional goals in real-world settings, making it an invaluable tool for lifelong learning and skill development.</p>
-        <a href="auth.html" class="get-started mt-6">Get Started</a>
-    </section>
-
-    <section class="section" id="features">
-        <h2>Explore Our Features</h2>
-        <div class="feature-grid">
-            <div class="feature">
-                <h3>Find a Mentor</h3>
-                <p>Discover the perfect mentor tailored to your needs. Search by expertise such as programming, design, or math, and filter by availability and location. Our smart matching system helps you connect with mentors who align with your learning goals.</p>
+    <!-- Navigation -->
+    <nav class="nexus-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-mark">NEXUS</div>
+                <span class="logo-text">MENTORS</span>
             </div>
-            <div class="feature">
-                <h3>Schedule a Session</h3>
-                <p>Easily book one-on-one sessions with your chosen mentor. Use our intuitive calendar to select a date and time that suits both parties, with the option to receive reminders.</p>
-            </div>
-            <div class="feature">
-                <h3>Progress Tracking</h3>
-                <p>Keep track of your mentorship journey with our progress tracking tools. Log session notes, set goals, and receive feedback to measure success over time.</p>
-            </div>
-            <div class="feature">
-                <h3>Earn Badges</h3>
-                <p>Complete sessions and achieve goals to earn badges! Showcase your progress and stay motivated.</p>
-            </div>
-            <div class="feature">
-                <h3>Learning Resources</h3>
-                <p>Access a hub of tutorials, articles, and tools tailored to your field of interest.</p>
-            </div>
-            <div class="feature">
-                <h3>Career Services</h3>
-                <p>Get resume reviews, mock interviews, and job placement assistance to boost your career.</p>
-            </div>
-            <div class="feature">
-                <h3>Mentor Training</h3>
-                <p>Mentors can enhance their coaching skills with our training resources.</p>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+                <li><a href="auth.html" class="nav-btn">Get Started</a></li>
+            </ul>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-    </section>
- </div>
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Connect With Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Your AI-Driven Path</span>
+                    <span class="title-line">To Career Growth</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Connect with verified industry experts through our intelligent matching platform. 
+                    Transform your career with personalized mentorship powered by cutting-edge AI.
+                </p>
+                <div class="hero-actions">
+                    <a href="auth.html" class="btn-primary">
+                        <span>Start Your Journey</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <span>Explore Features</span>
+                    </a>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
+            
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <i class="fas fa-rocket"></i>
+                    <h4>Career Acceleration</h4>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-brain"></i>
+                    <h4>AI Matching</h4>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Progress Tracking</h4>
+                </div>
             </div>
         </div>
-        <div class="footer-copyright">© 2025 Virtual Mentor Hub. All rights reserved.</div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Designed for Career Transformation</h2>
+                <p class="section-subtitle">Experience the future of mentorship with our comprehensive platform features</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Smart Mentor Discovery</h3>
+                    <p>Advanced AI matching connects you with ideal mentors based on your goals, skills, and career aspirations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Seamless Scheduling</h3>
+                    <p>Intelligent calendar integration with automated timezone handling and session reminders.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Progress Ecosystem</h3>
+                    <p>Track milestones, set goals, and measure your growth with comprehensive analytics and insights.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Achievement Recognition</h3>
+                    <p>Earn verified badges and certifications that showcase your expertise and commitment to growth.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Learning Resources</h3>
+                    <p>Access curated content, tutorials, and industry insights tailored to your career path.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Career Services</h3>
+                    <p>Professional resume reviews, mock interviews, and job placement assistance with top companies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Career?</h2>
+                <p>Join thousands of professionals already accelerating their growth with Nexus Mentors</p>
+                <a href="auth.html" class="btn-primary large">
+                    <span>Create Your Account</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="nexus-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <div class="logo-mark">NEXUS</div>
+                        <span class="logo-text">MENTORS</span>
+                    </div>
+                    <p>AI-powered career mentorship for the modern professional.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <a href="#features">Features</a>
+                        <a href="auth.html">Sign Up</a>
+                        <a href="login.html">Login</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="resources.html">Learning Hub</a>
+                        <a href="career.html">Career Services</a>
+                        <a href="community.html">Community</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nexus Mentors. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>

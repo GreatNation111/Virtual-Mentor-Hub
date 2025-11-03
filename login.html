@@ -3,66 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Mentor Hub - Sign In</title>
+    <title>Nexus Mentors - Sign In</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="sticky-nav">
-       <svg class="logo" width="270" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <!-- Define gradient -->
-                <linearGradient id="vm-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#3498db"/>
-                    <stop offset="100%" stop-color="#8e44ad"/>
-                </linearGradient>
-       <!-- Lightbulb shape as a clip path -->
-                <clipPath id="lightbulb-clip">
-                    <path d="M65 20 
-                           C65 10, 75 10, 75 20 
-                           C75 30, 65 30, 65 20 Z 
-                           M70 30 L70 45 
-                           L68 48 L72 48 L70 45 Z" />
-                </clipPath>
-            </defs>
-
-            <!-- Intertwined V and M -->
-            <g stroke="#eee" stroke-width="4">
-                <path d="M10 10 L30 90 L50 10" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M50 10 L70 60 L90 10 L110 90" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- Lightbulb inside M -->
-                <g clip-path="url(#lightbulb-clip)" transform="translate(60,15)">
-                    <rect x="0" y="0" width="20" height="33" fill="url(#vm-gradient)"/>
-                </g>
-            </g>
-
-            <!-- Text: Virtual Mentor Hub (scaled down) -->
-            <text x="130" y="70" font-family="Montserrat, sans-serif" font-size="20" fill="url(#vm-gradient)">
-                Virtual Mentor Hub
-            </text>
-        </svg>
+    <nav class="nexus-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-mark">NEXUS</div>
+                <span class="logo-text">MENTORS</span>
+            </div>
+            <a href="index.html" class="back-home">← Back to Home</a>
+        </div>
     </nav>
-   <div class="container">
-    <section class="auth-section">
-        <h2>Sign In</h2>
-        <form id="login-form">
-            <div class="input-group">
-                <input type="text" name="identifier" placeholder="Username or Email" required>
-                <span class="input-border"></span>
+
+    <div class="auth-container">
+        <div class="auth-background">
+            <div class="gradient-orb auth-orb-1"></div>
+            <div class="gradient-orb auth-orb-2"></div>
+        </div>
+        
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to continue your mentorship journey</p>
             </div>
-            <div class="input-group password-group">
-                <input type="password" id="login-password" name="password" placeholder="Password" required>
-                <i class="fas fa-eye toggle-password" id="toggleLoginPassword"></i>
-                <span class="input-border"></span>
+
+            <form id="login-form" class="auth-form">
+                <div class="input-group">
+                    <label for="identifier">Username or Email</label>
+                    <input type="text" id="identifier" name="identifier" placeholder="Enter your username or email" required>
+                    <div class="input-border"></div>
+                </div>
+
+                <div class="input-group password-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+                    <i class="fas fa-eye toggle-password" id="toggleLoginPassword"></i>
+                    <div class="input-border"></div>
+                </div>
+
+                <div class="auth-options">
+                    <a href="#" id="forgot-password" class="forgot-password">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="auth-btn primary">
+                    <span>Sign In</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <div id="login-message" class="auth-message"></div>
+            </form>
+
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="auth.html" class="auth-link">Create Account</a></p>
             </div>
-            <button type="submit">Sign In</button>
-            <a href="#" id="forgot-password" class="forgot-password">Forgot Password?</a>
-            <div id="login-message"></div>
-        </form>
-        <p class="switch-link">Don't have an account? <a href="auth.html">Sign Up</a></p>
-    </section>
- </div>
-    <a href="index.html" class="back-to-home">Back to Home</a>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

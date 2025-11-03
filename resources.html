@@ -3,68 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Mentor Hub - Resources</title>
+    <title>Nexus Mentors - Learning Resources</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="sticky-nav">
-         <svg class="logo" width="220" height="90" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <!-- Define gradient -->
-                <linearGradient id="vm-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#3498db"/>
-                    <stop offset="100%" stop-color="#8e44ad"/>
-                </linearGradient>
-       <!-- Lightbulb shape as a clip path -->
-                <clipPath id="lightbulb-clip">
-                    <path d="M65 20 
-                           C65 10, 75 10, 75 20 
-                           C75 30, 65 30, 65 20 Z 
-                           M70 30 L70 45 
-                           L68 48 L72 48 L70 45 Z" />
-                </clipPath>
-            </defs>
-
-            <!-- Intertwined V and M -->
-            <g stroke="#eee" stroke-width="4">
-                <path d="M10 10 L30 90 L50 10" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M50 10 L70 60 L90 10 L110 90" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- Lightbulb inside M -->
-                <g clip-path="url(#lightbulb-clip)" transform="translate(60,15)">
-                    <rect x="0" y="0" width="20" height="33" fill="url(#vm-gradient)"/>
-                </g>
-            </g>
-
-            <!-- Text: Virtual Mentor Hub (scaled down) -->
-            <text x="130" y="70" font-family="Montserrat, sans-serif" font-size="20" fill="url(#vm-gradient)">
-                Virtual Mentor Hub
-            </text>
-        </svg>
+    <nav class="nexus-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-mark">NEXUS</div>
+                <span class="logo-text">MENTORS</span>
+            </div>
+            <a href="dashboard.html" class="back-home">← Back to Dashboard</a>
+        </div>
     </nav>
 
-    <section id="resources" class="container">
-        <h2>Learning Resources Hub</h2>
-        <div class="resource-grid">
-            <div class="resource-item">
-                <h3>Coding Tutorials</h3>
-                <p>Learn Python, JavaScript, and more with our curated video guides.</p>
-                <a href="#" class="get-started">View</a>
+    <div class="page-container">
+        <section class="page-header">
+            <h1>Learning Resources Hub</h1>
+            <p>Curated educational content and tools to support your professional development journey</p>
+        </section>
+
+        <!-- Search and Filter -->
+        <div class="resources-controls">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search resources, topics, or skills..." class="search-input">
             </div>
-            <div class="resource-item">
-                <h3>Design Tools</h3>
-                <p>Master Adobe XD and Figma with step-by-step resources.</p>
-                <a href="#" class="get-started">View</a>
-            </div>
-            <div class="resource-item">
-                <h3>Math Resources</h3>
-                <p>Access problem sets and video explanations for advanced math.</p>
-                <a href="#" class="get-started">View</a>
+            <div class="filter-tabs">
+                <button class="filter-tab active">All Resources</button>
+                <button class="filter-tab">Web Development</button>
+                <button class="filter-tab">Data Science</button>
+                <button class="filter-tab">Design</button>
+                <button class="filter-tab">Business</button>
             </div>
         </div>
-    </section>
 
-    <a href="dashboard.html" class="back-to-home">Back to Home</a>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="resource-category web-dev">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="resource-content">
+                    <h3>Web Development</h3>
+                    <p>Complete learning path for frontend and backend development. Includes HTML, CSS, JavaScript, React, Node.js and more.</p>
+                    <div class="resource-meta">
+                        <span class="resource-count">24 resources</span>
+                        <span class="resource-level">Beginner to Advanced</span>
+                    </div>
+                </div>
+                <div class="resource-actions">
+                    <a href="#" class="resource-btn primary">
+                        <i class="fas fa-play-circle"></i>
+                        Start Learning
+                    </a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-category data-science">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="resource-content">
+                    <h3>Data Science</h3>
+                    <p>Master data analysis, machine learning, and statistical modeling with Python, R, and specialized tools.</p>
+                    <div class="resource-meta">
+                        <span class="resource-count">18 resources</span>
+                        <span class="resource-level">Intermediate</span>
+                    </div>
+                </div>
+                <div class="resource-actions">
+                    <a href="#" class="resource-btn primary">
+                        <i class="fas fa-play-circle"></i>
+                        Start Learning
+                    </a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-category design">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="resource-content">
+                    <h3>UI/UX Design</h3>
+                    <p>Learn user-centered design principles, prototyping, and design tools like Figma and Adobe XD.</p>
+                    <div class="resource-meta">
+                        <span class="resource-count">15 resources</span>
+                        <span class="resource-level">All Levels</span>
+                    </div>
+                </div>
+                <div class="resource-actions">
+                    <a href="#" class="resource-btn primary">
+                        <i class="fas fa-play-circle"></i>
+                        Start Learning
+                    </a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-category business">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <div class="resource-content">
+                    <h3>Product Management</h3>
+                    <p>Essential skills for product managers including strategy, roadmapping, and agile methodologies.</p>
+                    <div class="resource-meta">
+                        <span class="resource-count">12 resources</span>
+                        <span class="resource-level">Intermediate</span>
+                    </div>
+                </div>
+                <div class="resource-actions">
+                    <a href="#" class="resource-btn primary">
+                        <i class="fas fa-play-circle"></i>
+                        Start Learning
+                    </a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-category soft-skills">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="resource-content">
+                    <h3>Interview Preparation</h3>
+                    <p>Technical interview guides, behavioral questions, and negotiation strategies for job seekers.</p>
+                    <div class="resource-meta">
+                        <span class="resource-count">20 resources</span>
+                        <span class="resource-level">All Levels</span>
+                    </div>
+                </div>
+                <div class="resource-actions">
+                    <a href="#" class="resource-btn primary">
+                        <i class="fas fa-play-circle"></i>
+                        Start Learning
+                    </a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-category career">
+                    <i class="fas fa-arrow-up"></i>
+                </div>
+                <div class="resource-content">
+                    <h3>Career Growth</h3>
+                    <p>Strategies for career advancement, leadership development, and professional networking.</p>
+                    <div class="resource-meta">
+                        <span class="resource-count">16 resources</span>
+                        <span class="resource-level">All Levels</span>
+                    </div>
+                </div>
+                <div class="resource-actions">
+                    <a href="#" class="resource-btn primary">
+                        <i class="fas fa-play-circle"></i>
+                        Start Learning
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

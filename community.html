@@ -3,56 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Mentor Hub - Community</title>
+    <title>Nexus Mentors - Community</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="sticky-nav">
-         <svg class="logo" width="220" height="90" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <!-- Define gradient -->
-                <linearGradient id="vm-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#3498db"/>
-                    <stop offset="100%" stop-color="#8e44ad"/>
-                </linearGradient>
-       <!-- Lightbulb shape as a clip path -->
-                <clipPath id="lightbulb-clip">
-                    <path d="M65 20 
-                           C65 10, 75 10, 75 20 
-                           C75 30, 65 30, 65 20 Z 
-                           M70 30 L70 45 
-                           L68 48 L72 48 L70 45 Z" />
-                </clipPath>
-            </defs>
-
-            <!-- Intertwined V and M -->
-            <g stroke="#eee" stroke-width="4">
-                <path d="M10 10 L30 90 L50 10" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M50 10 L70 60 L90 10 L110 90" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- Lightbulb inside M -->
-                <g clip-path="url(#lightbulb-clip)" transform="translate(60,15)">
-                    <rect x="0" y="0" width="20" height="33" fill="url(#vm-gradient)"/>
-                </g>
-            </g>
-
-            <!-- Text: Virtual Mentor Hub (scaled down) -->
-            <text x="130" y="70" font-family="Montserrat, sans-serif" font-size="20" fill="url(#vm-gradient)">
-                Virtual Mentor Hub
-            </text>
-        </svg>
+    <nav class="nexus-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-mark">NEXUS</div>
+                <span class="logo-text">MENTORS</span>
+            </div>
+            <a href="dashboard.html" class="back-home">← Back to Dashboard</a>
+        </div>
     </nav>
 
-    <section id="community" class="container">
-        <h2>Community Forum</h2>
-        <div class="input-group">
-            <textarea id="post-input" placeholder="Share your thoughts or ask a question..." required></textarea>
-            <span class="input-border"></span>
+    <div class="page-container">
+        <section class="page-header">
+            <h1>Community Forum</h1>
+            <p>Connect, share, and learn from fellow professionals and mentors</p>
+        </section>
+
+        <div class="community-layout">
+            <!-- Create Post Card -->
+            <div class="community-card create-post">
+                <div class="post-header">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="post-prompt">
+                        <h3>Share your thoughts</h3>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <textarea id="post-input" placeholder="What's on your mind? Ask a question or share an insight..." rows="4"></textarea>
+                    <div class="input-border"></div>
+                </div>
+                <div class="post-actions">
+                    <button id="post-submit" class="post-btn primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Post to Community
+                    </button>
+                </div>
+            </div>
+
+            <!-- Forum Categories -->
+            <div class="community-sidebar">
+                <div class="sidebar-card">
+                    <h3>Categories</h3>
+                    <div class="category-list">
+                        <a href="#" class="category-item active">
+                            <i class="fas fa-comments"></i>
+                            <span>General Discussion</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <i class="fas fa-code"></i>
+                            <span>Tech & Coding</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Career Advice</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Learning Resources</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Job Opportunities</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Community Stats</h3>
+                    <div class="stats-list">
+                        <div class="stat-item">
+                            <span class="stat-value">1,247</span>
+                            <span class="stat-label">Active Members</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">543</span>
+                            <span class="stat-label">Discussions</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">89</span>
+                            <span class="stat-label">Online Now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posts Feed -->
+            <div class="posts-feed">
+                <div class="feed-header">
+                    <h3>Recent Discussions</h3>
+                    <div class="feed-filters">
+                        <select class="filter-select">
+                            <option>Newest First</option>
+                            <option>Most Popular</option>
+                            <option>Unanswered</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="post-list" class="posts-container">
+                    <!-- Posts will be dynamically loaded here -->
+                    <div class="post-placeholder">
+                        <i class="fas fa-comments"></i>
+                        <p>Be the first to start a discussion!</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button id="post-submit">Post</button>
-        <div id="post-list"></div>
-    </section>
-     <a href="dashboard.html" class="back-btn1"> ← Back</a>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

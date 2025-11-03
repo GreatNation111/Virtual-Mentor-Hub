@@ -3,68 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Mentor Hub - Career Services</title>
+    <title>Nexus Mentors - Career Services</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="sticky-nav">
-       <svg class="logo" width="220" height="90" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <!-- Define gradient -->
-                <linearGradient id="vm-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#3498db"/>
-                    <stop offset="100%" stop-color="#8e44ad"/>
-                </linearGradient>
-       <!-- Lightbulb shape as a clip path -->
-                <clipPath id="lightbulb-clip">
-                    <path d="M65 20 
-                           C65 10, 75 10, 75 20 
-                           C75 30, 65 30, 65 20 Z 
-                           M70 30 L70 45 
-                           L68 48 L72 48 L70 45 Z" />
-                </clipPath>
-            </defs>
-
-            <!-- Intertwined V and M -->
-            <g stroke="#eee" stroke-width="4">
-                <path d="M10 10 L30 90 L50 10" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M50 10 L70 60 L90 10 L110 90" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- Lightbulb inside M -->
-                <g clip-path="url(#lightbulb-clip)" transform="translate(60,15)">
-                    <rect x="0" y="0" width="20" height="33" fill="url(#vm-gradient)"/>
-                </g>
-            </g>
-
-            <!-- Text: Virtual Mentor Hub (scaled down) -->
-            <text x="130" y="70" font-family="Montserrat, sans-serif" font-size="20" fill="url(#vm-gradient)">
-                Virtual Mentor Hub
-            </text>
-        </svg>
+    <nav class="nexus-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-mark">NEXUS</div>
+                <span class="logo-text">MENTORS</span>
+            </div>
+            <a href="dashboard.html" class="back-home">← Back to Dashboard</a>
+        </div>
     </nav>
 
-    <section id="career" class="container">
-        <h2>Career Services</h2>
+    <div class="page-container">
+        <section class="page-header">
+            <h1>Career Services</h1>
+            <p>Professional development resources to accelerate your career growth</p>
+        </section>
+
         <div class="career-grid">
-            <div class="career-item">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
                 <h3>Resume Review</h3>
-                <p>Upload your resume for expert feedback.</p>
-                <input type="file" id="resume-upload" class="input-group">
+                <p>Get expert feedback on your resume from industry professionals. Upload your resume for personalized suggestions and optimization.</p>
+                <div class="service-actions">
+                    <input type="file" id="resume-upload" class="file-input" accept=".pdf,.doc,.docx">
+                    <label for="resume-upload" class="file-input-label">
+                        <i class="fas fa-upload"></i>
+                        Upload Resume
+                    </label>
+                </div>
             </div>
-            <div class="career-item">
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
                 <h3>Mock Interviews</h3>
-                <p>Practice with a mentor for your next interview.</p>
-                <button id="schedule-mock">Schedule</button>
+                <p>Practice with experienced mentors to ace your next interview. Receive real-time feedback and improvement suggestions.</p>
+                <div class="service-actions">
+                    <button id="schedule-mock" class="service-btn">
+                        <i class="fas fa-calendar-plus"></i>
+                        Schedule Session
+                    </button>
+                </div>
             </div>
-            <div class="career-item">
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
                 <h3>Job Placement</h3>
-                <p>Connect with job opportunities tailored to your skills.</p>
-                <a href="#" class="get-started">Explore Jobs</a>
+                <p>Connect with exclusive job opportunities tailored to your skills and career goals through our partner network.</p>
+                <div class="service-actions">
+                    <a href="#" class="service-btn primary">
+                        <i class="fas fa-search"></i>
+                        Explore Opportunities
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Career Strategy</h3>
+                <p>Develop a personalized career roadmap with guidance from industry experts and career coaches.</p>
+                <div class="service-actions">
+                    <button class="service-btn secondary">
+                        <i class="fas fa-chart-line"></i>
+                        Plan My Path
+                    </button>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Networking Events</h3>
+                <p>Join virtual networking sessions and connect with professionals in your target industry.</p>
+                <div class="service-actions">
+                    <button class="service-btn">
+                        <i class="fas fa-users"></i>
+                        View Events
+                    </button>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Skill Certification</h3>
+                <p>Earn verified certifications to showcase your expertise to potential employers.</p>
+                <div class="service-actions">
+                    <button class="service-btn">
+                        <i class="fas fa-award"></i>
+                        Get Certified
+                    </button>
+                </div>
             </div>
         </div>
-    </section>
-
-    <a href="dashboard.html" class="back-to-home">Back to Home</a>
+    </div>
 
     <script src="script.js"></script>
 </body>

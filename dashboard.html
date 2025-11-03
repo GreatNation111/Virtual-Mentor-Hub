@@ -3,181 +3,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Mentor Hub - Dashboard</title>
+    <title>Nexus Mentors - Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    
-    <header class="dashboard-header">
-        <div class="hamburger-menu">
-            <i class="fas fa-bars"></i>
-        </div>
-         <svg class="logo" width="220" height="90" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <!-- Define gradient -->
-                <linearGradient id="vm-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#3498db"/>
-                    <stop offset="100%" stop-color="#8e44ad"/>
-                </linearGradient>
-       <!-- Lightbulb shape as a clip path -->
-                <clipPath id="lightbulb-clip">
-                    <path d="M65 20 
-                           C65 10, 75 10, 75 20 
-                           C75 30, 65 30, 65 20 Z 
-                           M70 30 L70 45 
-                           L68 48 L72 48 L70 45 Z" />
-                </clipPath>
-            </defs>
-
-            <!-- Intertwined V and M -->
-            <g stroke="#eee" stroke-width="4">
-                <path d="M10 10 L30 90 L50 10" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M50 10 L70 60 L90 10 L110 90" fill="none" stroke="url(#vm-gradient)" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- Lightbulb inside M -->
-                <g clip-path="url(#lightbulb-clip)" transform="translate(60,15)">
-                    <rect x="0" y="0" width="20" height="33" fill="url(#vm-gradient)"/>
-                </g>
-            </g>
-
-            <!-- Text: Virtual Mentor Hub (scaled down) -->
-            <text x="130" y="70" font-family="Montserrat, sans-serif" font-size="20" fill="url(#vm-gradient)">
-                Virtual Mentor Hub
-            </text>
-        </svg>
-    </div>
-    </header>
-    <div class="sidebar" id="sidebar">
+<body class="dashboard-body">
+    <!-- Sidebar Navigation -->
+    <nav class="dashboard-sidebar">
         <div class="sidebar-header">
-            <h2>Menu</h2>
-            <i class="fas fa-times close-sidebar"></i>
+            <div class="sidebar-logo">
+                <div class="logo-mark">NEXUS</div>
+                <span class="logo-text">MENTORS</span>
+            </div>
         </div>
-        <nav class="sidebar-nav">
-             <a href="dashboard.html" class="nav-item">
-                <i class="fas fa-home"></i> Home
-            </a>
-            <a href="#profile" class="nav-item">
-                <i class="fas fa-user"></i> Profile
-            </a>
-            <a href="#sessions" class="nav-item">
-                <i class="fas fa-calendar"></i> Sessions
-            </a>
-            <a href="community.html" class="nav-item">
-                <i class="fas fa-users"></i> Community
-            </a>
-            <a href="resources.html" class="nav-item">
-                <i class="fas fa-book"></i> Resources
-            </a>
-            <a href="career.html" class="nav-item">
-                <i class="fas fa-briefcase"></i> Career Services
-            </a>
-            <a href="#find-mentor" class="nav-item">
-                <i class="fas fa-search"></i> Find a Mentor
-            </a>
-            <a href="#schedule" class="nav-item">
-                <i class="fas fa-clock"></i> Schedule
-            </a>
-            <a href="#progress" class="nav-item">
-                <i class="fas fa-chart-line"></i> Progress
-            </a>
-            <a href="#training" class="nav-item">
-                <i class="fas fa-graduation-cap"></i> Training
-            </a>
-            <a href="#" class="nav-item logout">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
-        </nav>
-    </div>
 
+        <div class="sidebar-content">
+            <div class="user-profile">
+                <button class="user-avatar profile-btn" title="View Profile">
+                    <i class="fas fa-user"></i>
+                </button>
+                <div class="user-info">
+                    <span class="user-name">Welcome Back!</span>
+                    <span class="user-role">Mentee</span>
+                </div>
+            </div>
+
+            <ul class="sidebar-nav">
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#sessions" class="nav-link">
+                        <i class="fas fa-calendar"></i>
+                        <span>Sessions</span>
+                        <span class="nav-badge">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#find-mentor" class="nav-link">
+                        <i class="fas fa-search"></i>
+                        <span>Find Mentors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        <span>Resources</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="career.html" class="nav-link">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Career Services</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="community.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Community</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#progress" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Progress</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="#" class="nav-link logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
     <main class="dashboard-main">
-        <section id="find-mentor" class="dashboard-card">
-            <h2>Find a Mentor</h2>
-            <form id="search-form" class="card-form">
-                <div class="input-group">
-                    <input type="text" name="expertise" placeholder="Search by expertise (e.g., coding, design)" required>
-                    <span class="input-border"></span>
-                </div>
-                <button type="submit" class="card-btn">Search</button>
-            </form>
-            <div id="mentor-list" class="card-content"></div>
-        </section>
-
-        <section id="schedule" class="dashboard-card">
-            <h2>Schedule a Session</h2>
-            <div class="card-form">
-                <div class="input-group">
-                    <select id="mentor-select" required>
-                        <option value="">Select a Mentor</option>
-                    </select>
-                    <span class="input-border"></span>
-                </div>
-                <div class="input-group">
-                    <input type="date" id="session-date" required>
-                    <span class="input-border"></span>
-                </div>
-                <button id="book-session" class="card-btn">Book Session</button>
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="dashboard-title">Dashboard Overview</h1>
             </div>
-            <div id="schedule-list" class="card-content"></div>
-            <div id="notifications" class="card-content"></div>
-        </section>
-
-        <section id="progress" class="dashboard-card">
-            <h2>Progress Tracking</h2>
-            <div class="card-form">
-                <div class="input-group">
-                    <textarea id="session-notes" placeholder="Enter session notes..." required></textarea>
-                    <span class="input-border"></span>
-                </div>
-                <button id="save-notes" class="card-btn">Save Notes</button>
-            </div>
-            <div id="notes-list" class="card-content"></div>
-        </section>
-
-        <section id="training" class="dashboard-card" style="display: none;">
-            <h2>Mentor Training Program</h2>
-            <p>Enhance your mentoring skills with our training resources.</p>
-            <div class="card-form">
-                <div class="input-group">
-                    <select id="training-select">
-                        <option value="">Select a Training Module</option>
-                        <option value="coaching">Coaching Techniques</option>
-                        <option value="feedback">Feedback Strategies</option>
-                    </select>
-                    <span class="input-border"></span>
-                </div>
-                <button id="start-training" class="card-btn">Start Training</button>
-            </div>
-            <div id="training-content" class="card-content"></div>
-        </section>
-
-        <section id="profile" class="dashboard-card" style="display: none;">
-            <h2>Profile</h2>
-            <div class="card-form">
-                <div class="input-group">
-                    <input type="text" id="profile-name" value="" placeholder="Your Name" readonly>
-                    <span class="input-border"></span>
-                </div>
-                <div class="input-group">
-                    <input type="text" id="profile-email" value="" placeholder="Your Email" readonly>
-                    <span class="input-border"></span>
-                </div>
-                <div class="input-group">
-                    <input type="text" id="profile-role" value="" placeholder="Your Role" readonly>
-                    <span class="input-border"></span>
-                </div>
-                <button id="toggle-dark-mode" class="dark-mode-toggle">
-                    <i class="fas fa-moon"></i> Toggle Dark Mode
+            <div class="header-actions">
+                <button class="header-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">4</span>
+                </button>
+                <button class="header-btn">
+                    <i class="fas fa-cog"></i>
                 </button>
             </div>
-            <div id="profile-badges" class="card-content">Badges: <span class="badges-display"></span></div>
-             <a href="dashboard.html" class="back-btn1"> ← Back</a>
+        </header>
+
+        <!-- Stats Grid -->
+        <section id="dashboard-stats" class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <h3>Upcoming Sessions</h3>
+                    <i class="fas fa-calendar stat-icon"></i>
+                </div>
+                <div class="stat-value">3</div>
+                <div class="stat-trend positive">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>2 this week</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <h3>Mentors Connected</h3>
+                    <i class="fas fa-users stat-icon"></i>
+                </div>
+                <div class="stat-value">7</div>
+                <div class="stat-trend positive">
+                    <i class="fas fa-plus"></i>
+                    <span>1 new</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <h3>Learning Progress</h3>
+                    <i class="fas fa-chart-line stat-icon"></i>
+                </div>
+                <div class="stat-value">68%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 68%"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <h3>Goals Achieved</h3>
+                    <i class="fas fa-trophy stat-icon"></i>
+                </div>
+                <div class="stat-value">12/15</div>
+                <div class="stat-trend">
+                    <span>80% completion</span>
+                </div>
+            </div>
         </section>
 
-        <section id="sessions" class="dashboard-card" style="display: none;">
-            <h2>Your Sessions</h2>
-            <div id="session-overview" class="card-content"></div>
+          <!-- Main Content Grid -->
+        <div id="dashboard" class="dashboard-grid dashboard-section active">
+            <!-- Recent Sessions -->
+            <section class="dashboard-card">
+                <div class="card-header">
+                    <h2>Recent Sessions</h2>
+                    <a href="#sessions" class="card-action">View All</a>
+                </div>
+                <div class="card-content">
+                    <div class="session-list">
+                        <div class="session-item">
+                            <div class="session-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="session-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Career Strategy Session</p>
+                                <span class="session-time">Today, 3:00 PM</span>
+                            </div>
+                            <div class="session-status confirmed">Confirmed</div>
+                        </div>
+                        <div class="session-item">
+                            <div class="session-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="session-info">
+                                <h4>Mike Chen</h4>
+                                <p>Technical Interview Prep</p>
+                                <span class="session-time">Tomorrow, 10:00 AM</span>
+                            </div>
+                            <div class="session-status pending">Pending</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mentor Recommendations -->
+            <section class="dashboard-card">
+                <div class="card-header">
+                    <h2>Recommended Mentors</h2>
+                    <a href="#find-mentor" class="card-action">Browse All</a>
+                </div>
+                <div class="card-content">
+                    <div class="mentor-grid">
+                        <div class="mentor-card">
+                            <div class="mentor-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="mentor-info">
+                                <h4>Dr. Emily Rodriguez</h4>
+                                <p>Product Management</p>
+                                <div class="mentor-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (42 reviews)</span>
+                                </div>
+                            </div>
+                            <button class="mentor-action">Connect</button>
+                        </div>
+                        <div class="mentor-card">
+                            <div class="mentor-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="mentor-info">
+                                <h4>James Wilson</h4>
+                                <p>Data Science</p>
+                                <div class="mentor-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8 (37 reviews)</span>
+                                </div>
+                            </div>
+                            <button class="mentor-action">Connect</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Tracking -->
+            <section class="dashboard-card">
+                <div class="card-header">
+                    <h2>Learning Progress</h2>
+                    <a href="#progress" class="card-action">Details</a>
+                </div>
+                <div class="card-content">
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <h4>Web Development Path</h4>
+                            <span>65% completed</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <h4>Interview Preparation</h4>
+                            <span>80% completed</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <h4>Career Strategy</h4>
+                            <span>45% completed</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Quick Actions -->
+            <section class="dashboard-card">
+                <div class="card-header">
+                    <h2>Quick Actions</h2>
+                </div>
+                <div class="card-content">
+                    <div class="actions-grid">
+                        <button class="action-btn" data-action="find-mentor">
+                            <i class="fas fa-search"></i>
+                            <span>Find Mentors</span>
+                        </button>
+                        <button class="action-btn" data-action="schedule-session">
+                            <i class="fas fa-calendar-plus"></i>
+                            <span>Schedule Session</span>
+                        </button>
+                        <button class="action-btn" data-action="resources">
+                            <i class="fas fa-book"></i>
+                            <span>Resources</span>
+                        </button>
+                        <button class="action-btn" data-action="career">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Career Services</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PROFILE SECTION -->
+        <section id="profile" class="dashboard-section">
+            <div class="section-container">
+                <div class="profile-header">
+                    <div class="profile-avatar-large">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-header-info">
+                        <h2 id="profile-fullname">John Doe</h2>
+                        <p id="profile-username">@johndoe</p>
+                        <span id="profile-role-badge" class="role-badge">Mentee</span>
+                    </div>
+                </div>
+
+                <div class="profile-grid">
+                    <div class="profile-card">
+                        <h3>Personal Information</h3>
+                        <div class="profile-field">
+                            <label>Email</label>
+                            <p id="profile-email">john@example.com</p>
+                        </div>
+                        <div class="profile-field">
+                            <label>Role</label>
+                            <p id="profile-role">Mentee</p>
+                        </div>
+                        <div class="profile-field">
+                            <label>Education Level</label>
+                            <p id="profile-education">Bachelor's Degree</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-card">
+                        <h3>Career Information</h3>
+                        <div class="profile-field">
+                            <label>Career Goal</label>
+                            <p id="profile-goal">Software Development</p>
+                        </div>
+                        <div class="profile-field">
+                            <label>Current Position</label>
+                            <p id="profile-position">Not specified</p>
+                        </div>
+                        <div class="profile-field">
+                            <label>Years of Experience</label>
+                            <p id="profile-experience">Not specified</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-card">
+                        <h3>Statistics</h3>
+                        <div class="profile-stat">
+                            <span class="stat-label">Sessions Completed</span>
+                            <span class="stat-value" id="profile-sessions-count">0</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="stat-label">Badges Earned</span>
+                            <span class="stat-value" id="profile-badges-count">0</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="stat-label">Learning Progress</span>
+                            <span class="stat-value" id="profile-progress">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-card">
+                        <h3>Achievements</h3>
+                        <div id="profile-badges-list" class="badges-list">
+                            <p class="empty-text">No badges earned yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SESSIONS SECTION -->
+        <section id="sessions" class="dashboard-section">
+            <div class="section-container">
+                <div class="sessions-layout">
+                    <div class="sessions-main">
+                        <div class="sessions-tabs">
+                            <button class="tab-btn active" data-tab="upcoming">Upcoming Sessions</button>
+                            <button class="tab-btn" data-tab="history">Session History</button>
+                        </div>
+
+                        <div class="tab-content active" id="upcoming-tab">
+                            <div id="upcoming-sessions-list" class="sessions-list">
+                                <div class="empty-state">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <p>No upcoming sessions</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="history-tab">
+                            <div id="session-history-list" class="sessions-list">
+                                <div class="empty-state">
+                                    <i class="fas fa-history"></i>
+                                    <p>No session history yet</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sessions-sidebar">
+                        <div class="booking-card">
+                            <h3>Book a Session</h3>
+                            <form id="session-booking-form">
+                                <div class="form-group">
+                                    <label>Select Mentor</label>
+                                    <select id="mentor-select" required>
+                                        <option value="">Choose a mentor...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <input type="date" id="session-date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <input type="time" id="session-time" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Topic</label>
+                                    <input type="text" id="session-topic" placeholder="e.g., Career Strategy" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Notes (Optional)</label>
+                                    <textarea id="session-notes" placeholder="Add any additional notes..."></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary">Book Session</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FIND MENTORS SECTION -->
+        <section id="find-mentor" class="dashboard-section">
+            <div class="section-container">
+                <div class="find-mentors-header">
+                    <h2>Find Your Perfect Mentor</h2>
+                    <p>Connect with experienced professionals in your field</p>
+                </div>
+
+                <div class="mentors-controls">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="mentor-search-input" placeholder="Search by name, expertise, or field...">
+                    </div>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">All Mentors</button>
+                        <button class="filter-tab" data-filter="top-rated">Top Rated</button>
+                        <button class="filter-tab" data-filter="available">Available Now</button>
+                    </div>
+                </div>
+
+                <div id="mentors-grid" class="mentors-grid">
+                    <div class="empty-state">
+                        <i class="fas fa-users"></i>
+                        <p>Loading mentors...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRESS SECTION -->
+        <section id="progress" class="dashboard-section">
+            <div class="section-container">
+                <div class="progress-layout">
+                    <div class="progress-main">
+                        <div class="progress-tabs">
+                            <button class="tab-btn active" data-tab="notes">My Notes</button>
+                            <button class="tab-btn" data-tab="achievements">Achievements</button>
+                        </div>
+
+                        <div class="tab-content active" id="notes-tab">
+                            <div id="notes-list" class="notes-list">
+                                <div class="empty-state">
+                                    <i class="fas fa-sticky-note"></i>
+                                    <p>No notes yet. Start documenting your learning journey!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="achievements-tab">
+                            <div id="user-badges" class="badges-grid">
+                                <div class="empty-state">
+                                    <i class="fas fa-award"></i>
+                                    <p>No badges earned yet</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-sidebar">
+                        <div class="notes-card">
+                            <h3>Add a Note</h3>
+                            <form id="progress-notes-form">
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <input type="text" id="note-title" placeholder="e.g., Week 1 Learnings" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Content</label>
+                                    <textarea id="note-content" placeholder="Write your notes here..." required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tags (Optional)</label>
+                                    <input type="text" id="note-tags" placeholder="e.g., javascript, react, web-dev">
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-primary">Save Note</button>
+                                    <button type="button" id="clear-notes" class="btn-secondary">Clear</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
+
     <script src="script.js"></script>
 </body>
-</html
+</html>
